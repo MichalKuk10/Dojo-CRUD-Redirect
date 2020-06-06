@@ -1,4 +1,5 @@
-<%--
+<%@ page import="Model.Student" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: michal
   Date: 06.06.2020
@@ -17,7 +18,9 @@
     <title>Dojo</title>
 </head>
 <body>
-
+<%
+ArrayList<Student> users = (ArrayList<Student>) request.getAttribute("entry");
+%>
 
 <a href="#">Add</a>
 
