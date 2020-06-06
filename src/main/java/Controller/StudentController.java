@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Student;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,13 +22,36 @@ public class StudentController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        listOfStudents = new ArrayList<>();
+        listOfStudents.add(new Student(1,"Mcihał", "KUK", 45));
         request.setAttribute("entry", listOfStudents);
+
+        response.setHeader("Send", "Success");
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("index.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.sendRedirect(request.getContextPath() + "/redirected");
+
+        listOfStudents = new ArrayList<>();
+        listOfStudents.add(new Student(1,"Mcihał", "KUK", 45));
+        listOfStudents.add(new Student(2,"Ktoś", "tam", 45));
+        request.setAttribute("entry", listOfStudents);
+
+        response.setHeader("Send", "Success");
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("index.jsp");
+        dispatcher.forward(request, response);
     }
 
 
     public StudentController(){
         listOfStudents = new ArrayList<>();
+        listOfStudents.add(new Student(1,"Mcihał", "KUK", 45));
     }
 
     public void handle(){

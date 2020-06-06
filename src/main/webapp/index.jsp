@@ -1,12 +1,7 @@
 <%@ page import="Model.Student" %>
-<%@ page import="java.util.ArrayList" %><%--
-  Created by IntelliJ IDEA.
-  User: michal
-  Date: 06.06.2020
-  Time: 15:02
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 
 <style>
@@ -20,9 +15,10 @@
 <body>
 <%
 ArrayList<Student> users = (ArrayList<Student>) request.getAttribute("entry");
+
 %>
 
-<a href="#">Add</a>
+<a href="details.jsp">Add</a>
 
 <table>
     <tr>
@@ -32,20 +28,20 @@ ArrayList<Student> users = (ArrayList<Student>) request.getAttribute("entry");
         <th>Age</th>
         <th>Actions</th>
     </tr>
+    <%
+        for(Student student : users){
+    %>
     <tr>
-        <td>1</td>
-        <td>Michał</td>
-        <td>Lechowicz</td>
-        <td>50</td>
+        <td><%= student.getId() %> </td>
+        <td><%= student.getFirstName() %></td>
+        <td><%= student.getLastName() %></td>
+        <td><%= student.getAge() %></td>
         <td><a href="#">Edit</a> <a href="#">Delete</a></td>
     </tr>
-    <tr>
-        <td>2</td>
-        <td>Tomek</td>
-        <td>Rożek</td>
-        <td>60</td>
-        <td><a href="#">Edit</a> <a href="#">Delete</a></td>
-    </tr>
+
+    <%
+        }
+    %>
 </table>
 
 </body>
