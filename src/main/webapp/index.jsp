@@ -7,12 +7,43 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
+<style>
+    table, tr, th, td{
+        border: 1px solid black;
+    }
+</style>
 <head>
     <title>Dojo</title>
 </head>
 <body>
 
-test
+
+<a href="#">Add</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>Actions</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Michał</td>
+        <td>Lechowicz</td>
+        <td>50</td>
+        <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Tomek</td>
+        <td>Rożek</td>
+        <td>60</td>
+        <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+    </tr>
+</table>
 
 </body>
 </html>
