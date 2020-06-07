@@ -14,7 +14,8 @@
 </head>
 <body>
 <%
-ArrayList<Student> users = Student.listOfStudents;
+ArrayList<Student> users = Student.listOfStudents;//
+//Student.listOfStudents.add(new Student("Mcihał", "KUK", 45));
 
 %>
 
@@ -36,7 +37,7 @@ ArrayList<Student> users = Student.listOfStudents;
         <td><%= student.getFirstName() %></td>
         <td><%= student.getLastName() %></td>
         <td><%= student.getAge() %></td>
-        <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+        <td><a href="edit?id=<%= student.getId() %>">Edit</a> <a href="delete?id=<%= student.getId() %>">Delete</a></td>
     </tr>
 
     <%
