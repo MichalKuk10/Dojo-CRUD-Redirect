@@ -35,8 +35,6 @@ public class StudentController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        response.sendRedirect(request.getContextPath() + "/redirected");
-
         listOfStudents = new ArrayList<>();
         listOfStudents.add(new Student(1,"Mcihał", "KUK", 45));
         listOfStudents.add(new Student(2,"Ktoś", "tam", 45));
