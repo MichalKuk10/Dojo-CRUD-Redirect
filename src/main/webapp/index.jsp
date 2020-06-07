@@ -14,11 +14,11 @@
 </head>
 <body>
 <%
-ArrayList<Student> users = (ArrayList<Student>) request.getAttribute("entry");
+ArrayList<Student> users = Student.listOfStudents;
 
 %>
 
-<a href="details.jsp">Add</a>
+<a href="add">Add</a>
 
 <table>
     <tr>

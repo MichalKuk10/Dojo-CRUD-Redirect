@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@WebServlet(name = "allStudents", urlPatterns = {"/students"})
-public class StudentController extends HttpServlet {
-    private List<Student> listOfStudents;
-
-
-
+@WebServlet(name = "allStudents", urlPatterns = {"/add"})
+public class AddStudent extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        listOfStudents = new ArrayList<>();
-        listOfStudents.add(new Student(1,"Mcihał", "KUK", 45));
-        request.setAttribute("entry", listOfStudents);
+        //Student.listOfStudents.add(new Student("Mcihał", "KUK", 45));
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String age = request.getParameter("age");
+        Student.listOfStudents.add(new Student(firstName, lastName, Integer.parseInt(age)));
+
+
 
         response.setHeader("Send", "Success");
         RequestDispatcher dispatcher
@@ -35,21 +35,16 @@ public class StudentController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        listOfStudents = new ArrayList<>();
-        listOfStudents.add(new Student(1,"Mcihał", "KUK", 45));
-        listOfStudents.add(new Student(2,"Ktoś", "tam", 45));
-        request.setAttribute("entry", listOfStudents);
 
-        response.setHeader("Send", "Success");
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("index.jsp");
+                = request.getRequestDispatcher("details.jsp");
         dispatcher.forward(request, response);
     }
 
 
-    public StudentController(){
-        listOfStudents = new ArrayList<>();
-        listOfStudents.add(new Student(1,"Mcihał", "KUK", 45));
+    public AddStudent(){
+//        listOfStudents = new ArrayList<>();
+//        listOfStudents.add(new Student(1,"Mcihał", "KUK", 45));
     }
 
     public void handle(){
@@ -60,8 +55,8 @@ public class StudentController extends HttpServlet {
     }
 
     private void add(int id, String firstName, String lastName, int age){
-        Student newStudent = new Student(id, firstName, lastName, age);
-        listOfStudents.add(newStudent);
+        Student newStudent = new Student( firstName, lastName, age);
+//        listOfStudents.add(newStudent);
     }
 
     private void edit(int id){

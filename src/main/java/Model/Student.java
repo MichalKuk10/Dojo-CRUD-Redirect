@@ -1,13 +1,18 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student {
+    private static int countStudents = 0;
     private int id;
     private String firstName;
     private String lastName;
     private int age;
+    public static ArrayList<Student> listOfStudents = new ArrayList<Student>();
 
-    public Student(int id, String firstName, String lastName, int age) {
-        this.id = id;
+    public Student(String firstName, String lastName, int age) {
+        this.id = ++countStudents;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

@@ -63,6 +63,11 @@
                 <configuration>
                     <reload>automatic</reload>
                     <scanIntervalSeconds>1</scanIntervalSeconds>
+                    <webAppConfig>
+                        <contextPath>
+                            /students
+                        </contextPath>
+                    </webAppConfig>
                 </configuration>
             </plugin>
 

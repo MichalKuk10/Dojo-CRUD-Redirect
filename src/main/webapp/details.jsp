@@ -11,13 +11,13 @@
   <title>Title</title>
 </head>
 <body>
-<form>
+<form  action="add" method="post">
   <label>Please provide first name:</label>
-  <input>
+  <input name="firstName">
   <label>Please provide last name:</label>
-  <input>
+  <input name="lastName">
   <label>Please provide age:</label>
-  <input>
+  <input name="age">
   <button type="submit">Send</button>
 </form>
 </body>
